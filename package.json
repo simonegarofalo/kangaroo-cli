@@ -23,6 +23,7 @@
   "homepage": "https://github.com/simonegarofalo/kangaroo-CLI#readme",
   "dependencies": {
     "better-sqlite3": "^12.4.1",
-    "commander": "^14.0.1"
+    "commander": "^14.0.1",
+    "table": "^6.9.0"
   }
 }

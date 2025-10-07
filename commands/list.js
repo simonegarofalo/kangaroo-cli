@@ -1,4 +1,5 @@
 import { listLinks } from "../db.js";
+import { table } from 'table';
 
 export function listLinkCommand(program) {
   program
@@ -12,14 +13,30 @@ export function listLinkCommand(program) {
         return;
       }
 
-      const formattedLinks = links.map(link => ({
-        ID: link.id,
-        URL: link.url,
-        Description: link.description?.trim() || '-',
-        Category: link.category?.trim() || '-',
-      }));
+      const data = [
+        ['ID', 'URL', 'Description', 'Category'],
+        ...links.map(link => [
+        link.id,
+        link.url,
+        link.description?.trim() || '-',
+        link.category?.trim() || '-',
+      ])
+    ];
 
-      console.log('\nYour saved links:\n');
-      console.table(formattedLinks);
+    const config = {
+        columnDefault: {
+          width: 15,
+        },
+        columns: {
+          0: { width: 5 },
+          1: { width: 20 },
+        },
+        header: {
+          alignment: 'center',
+          content: "Your saved links:",
+        },
+      };
+
+      console.log(table(data, config));
     });
 }
