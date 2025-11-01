@@ -4,10 +4,10 @@ const db = new Database('links.db');
 
 db.exec(`
     CREATE TABLE IF NOT EXISTS links (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        url TEXT NOT NULL,
-        description TEXT,
-        category TEXT DEFAULT ''
+        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+        url VARCHAR(255) UNIQUE NOT NULL,
+        description VARCHAR(255),
+        category VARCHAR(255) NOT NULL
     )
 `);
 

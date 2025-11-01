@@ -18,8 +18,8 @@ export function listLinkCommand(program) {
         ...links.map(link => [
         link.id,
         link.url,
-        link.description?.trim() || '-',
-        link.category?.trim() || '-',
+        link.description?.trim() || '',
+        link.category?.trim() || '',
       ])
     ];
 
@@ -29,7 +29,7 @@ export function listLinkCommand(program) {
         },
         columns: {
           0: { width: 5 },
-          1: { width: 20 },
+          1: { width: 80 },
         },
         header: {
           alignment: 'center',

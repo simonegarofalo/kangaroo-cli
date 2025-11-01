@@ -10,7 +10,7 @@ export function addCommand(program) {
     .action((url, options) => {
         const success = addLink(url, options.desc, options.cat || "");
         if (success) {
-            console.log('Link saved successfully');
+            console.log('Link saved successfully!');
         }
     })
 };
